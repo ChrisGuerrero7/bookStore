@@ -7,32 +7,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <link rel="icon" href="./images/layers.png" type="image/x-icon">
+    <title>Book Stacks</title>
     
 </head>
 <body>
     <div class="bookStack">
-        <div class="form-container">
-            <img src="./images/layers.png" alt="logo" class="logo">
-            <h1 class="title">Book Stacks</h1>
-            <p class="subtitle">Add your favorite books</p>
+        <div class="container">
+            <div class="form-container">
+                <img src="./images/layers.png" alt="logo" class="logo">
+                <h1 class="title">Book Stacks</h1>
+                <p class="subtitle">Add your favorite books</p>
 
-            <form action="/" class="form">
-                <label for="nameBook" class="label">Book Name</label>
-                <input type="nameBook" id="nameBook" placeholder="Enter the name book" class="input input-name">
+                <form class="form">
+                    <label for="nameBook" class="label">Book Name</label>
+                    <input type="nameBook" id="nameBook" placeholder="Enter the name book" class="input input-name">
 
-                <input type="submit" value="Add book" class="primary-button add-button">
-                <input type="submit" value="Remove book" class="primary-button remove-button">
-            </form>
-            <p>List Books</p>
-            <div class="listBook">
-                <ul>
-                    
+                    <button class="primary-button add-button" id="add">Add book</button>
+                    <button class="primary-button remove-button" id="remove">Remove book</button>
+
+                </form>
+
+            </div>
+            <div class="list-container">
+                <p class="listOfBooks">List of Books</p>
+                <ul id="listBook" class="books">
+
                 </ul>
             </div>
-
         </div>
+        
     </div>
-    <script src="/"></script>
+
+    <script src="./index.js"></script>
 </body>
 </html>

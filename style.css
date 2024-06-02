@@ -5,7 +5,7 @@
     --text-input-field: #f7f7f7;
     --hospital-green: #ACD9B2;
     --sm: 14px;
-    --md: 16px;
+    --md: 20px;
     --lg: 30px;
 }
 
@@ -17,9 +17,12 @@ body {
 .bookStack {
     width: 100%;
     height: 100vh;
+}
+
+.container {
+    padding: 10% 0 0 0;
     display: grid;
     place-items: center;
-    
 }
 
 .form-container {
@@ -28,21 +31,27 @@ body {
     width: 300px;
 }
 
+.list-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 300px;
+}
+
 .logo {
     width: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
     justify-self: center;
 }
 
 .title {
     font-size: var(--lg);
-    margin-bottom: 12px;
+    margin: 1px;
     text-align: center;
 }
 
 .subtitle {
-    color: var(--very-light-pink);
-    font-size: var(--md);
+    color: var(--hospital-green);
+    font-size: var(--sm);
     font-weight: 300;
     margin-top: 0;
     margin-bottom: 32px;
@@ -65,7 +74,7 @@ body {
     border: 1px solid var(--hospital-green);
     border-radius: 8px;
     height: 30px;
-    font-size: var(--md);
+    font-size: var(--sm);
     padding: 6px;
     margin-bottom: 12px;
 }
@@ -76,17 +85,43 @@ body {
     color: var(--white);
     width: 100%;
     cursor: pointer;
-    font-size: var(--md);
+    font-size: var(--sm);
     font-weight: bold;
     height: 50px;
     margin-bottom: 12px;
 }
 
 .add-button {
-    background-color: rgb(11, 11, 143);
+    background-color: rgb(86, 86, 215);
 }
 
 .remove-button {
-    background-color: rgb(220, 34, 34);
+    background-color: rgb(221, 93, 93);
+}
+
+input::placeholder{
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+}
+
+.listOfBooks {
+    font-size: var(--md);
+    text-align: center;
+    color: rgb(72, 72, 72);
+    font-weight: bold;
+    margin: 5px;
+    border-top: var(--very-light-pink) 1px dashed;
+    padding: 10px 0 0 0;
+}
+
+.books {
+    font-size: var(--sm);
+    border: var(--very-light-pink) 1px dashed ;
+    padding: 10px;
+    display: grid;
+}
+
+li {
+    margin-left: 10px;
 }
 

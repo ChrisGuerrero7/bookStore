@@ -1,67 +1,73 @@
-let storageBooks = []
+let storageBooks = [] // list of books
 
-const ADD_TO_CART_ACTION = 'addToCard'
-const REMOVE_FROM_CART_ACTION = 'removeFromCard'
-const VIEW_CART_ACTION = 'viewCart'
+// Add a book of the list of books
+function addToCard (newBook) {
+    storageBooks.push(newBook)
+    // alert(`The book ${newBook} was added successfully`)
+}
 
-function viewCart() {
-    let books = ""
-    for (let i = 0; i <= storageBooks.length; i++) {
-        let n = i + 1
-        if (n > storageBooks.length) {
-            break;
+// Remove the last book from the list
+function removeFromCard () {
+    if (storageBooks.length === 0) {
+        alert("Cart is empty. No books to remove.")
+    } else {
+        const removeBook = storageBooks.pop()
+        // alert(`Removed book from the cart: ${removeBook}`)
+    }
+}
+
+// shows the books we added in the box 
+function addToBooks(e){
+    e.preventDefault();
+    const nameBook = document.querySelector("#nameBook").value;
+    let existeElemento = storageBooks.includes(nameBook);
+
+    // console.log(existeElemento)
+
+    if (nameBook != "" ) {
+        if (existeElemento != true) {
+            const listOfBook = document.querySelector("ul");
+            const li = document.createElement("li");
+            li.textContent = nameBook;
+            listOfBook.appendChild(li)
+            addToCard(nameBook)
+            // console.log(storageBooks)
+        } else {
+            alert("This book is duplicate. Enter a new book.")
         }
-        books += n.toString() + ". " + storageBooks[i] + ". \n"
+    } else {
+        alert("No book found to add. Enter the name of your favorite book.")
     }
-    alert("Los libros guardados son: \n" + books)
+    
+
+    
+    
+    
+
+    
+    
 }
 
-function performCartActions(action, newBook) {
-    switch (action) {
-        case ADD_TO_CART_ACTION:
-            storageBooks.push(newBook)
-            alert(`The book ${newBook} was added successfully`)
-            break;
-        
-        case REMOVE_FROM_CART_ACTION:
-            if (storageBooks.length === 0) {
-                alert("Cart is empty. No books to remove.")
-            } else {
-                const removeBook = storageBooks.pop()
-                alert(`Removed book from the cart: ${removeBook}`)
-            }
-            break;
+// Remove the last book from the page
+function removeFromBooks(e) {
+    e.preventDefault();
 
-        case VIEW_CART_ACTION:
-            viewCart()
-            break;
+    const listOfBook = document.querySelector("ul");
+    const lastBook = listOfBook.lastChild;
+    listOfBook.removeChild(lastBook)
+    removeFromCard()
+    console.log(storageBooks)
 
-        default:
-            alert('Invalid action. Please choose a valid option')
-    }
 }
 
-function showMenu (){
-    const optionsMenu = `Elige las siguientes opciones:
-    1) Mostrar libros guardados.
-    2) Añadir un libro.
-    3) Eliminar libro.`
+const addBook = document.getElementById("add")
+const removeBook = document.getElementById("remove")
 
-    selectedOption = prompt(optionsMenu)
-    return selectedOption
-}
+addBook.addEventListener("click", addToBooks)
+removeBook.addEventListener("click", removeFromBooks)
 
-selectedOption = showMenu()
-if (selectedOption == "1") {
-    performCartActions(VIEW_CART_ACTION)
-} else if (selectedOption == "2") {
-    const intoBook = prompt("Enter the name of the book:")
-    performCartActions(ADD_TO_CART_ACTION, intoBook)
-} else if (selectedOption == "3") {
-    performCartActions(REMOVE_FROM_CART_ACTION)
-} else {
-    alert("Invalid option. Please choose an option again.")
-}
+
+
 
 
 
